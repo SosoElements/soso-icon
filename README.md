@@ -1,2 +1,3 @@
-# soso-icon
+# \<soso-icon\>
+
 Simple icon
