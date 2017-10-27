@@ -1,0 +1,2 @@
+# soso-icon
+Simple icon
