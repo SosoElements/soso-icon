@@ -47,6 +47,10 @@
             type: Object,
             observer: '_refresh'
           },
+          iconMapRef: {
+            type: String,
+            observer: '_refresh'
+          },
           _path: String
         };
       }
@@ -59,9 +63,17 @@
         super.disconnectedCallback();
         this._attached = false;
       }
+      refresh() {
+        this._refresh();
+      }
       _refresh() {
-        if (this._attached && this.iconMap && this.icon) {
-          this._path = this.iconMap[this.icon];
+        let im = this.iconMap;
+        if (!im) {
+          let ref = this.iconMapRef || "sosoIconMap";
+          im = window[ref];
+        }
+        if (this._attached && im && this.icon) {
+          this._path = im[this.icon];
         } else {
           this._path = null;
         }
